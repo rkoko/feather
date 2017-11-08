@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const url = 'https://rentfeather.com';
+// const url = 'https://rentfeather.com';
+const URL = process.env.REACT_APP_API_URL;
 
 class Product extends React.Component {
   state = {
@@ -16,7 +17,7 @@ class Product extends React.Component {
   };
 
   componentWillMount() {
-    fetch(`https://rentfeather.com${this.state.handle}.json`)
+    fetch(`${URL}${this.state.handle}.json`)
       .then(res => res.json())
       .then(data =>
         this.setState({
@@ -42,7 +43,7 @@ class Product extends React.Component {
         <br />
         price: ${this.state.price}
         <br />
-        <a target="_blank" href={url + this.state.handle}>
+        <a target="_blank" href={URL + this.state.handle}>
           Buy now
         </a>
       </div>
