@@ -1,0 +1,17 @@
+ul#product-type {
+  list-style-type: none;
+}
+
+.product-list img {
+  height: 100px;
+  width: 100px;
+}
+
+.product-view img {
+  height: 200px;
+  width: 200px;
+}
+
+.app {
+  margin-left: 30px;
+}
