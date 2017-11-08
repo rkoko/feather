@@ -46,6 +46,8 @@ class Product extends React.Component {
         <a target="_blank" href={URL + this.state.handle}>
           Buy now
         </a>
+        <br />
+        <NavLink to="/products">Back to products page</NavLink>
       </div>
     );
   }
