@@ -11,7 +11,7 @@ function generateNavlink(product) {
       <NavLink to={`/products/${product.handle}`}>{product.title}</NavLink>
       <ul id="product-type">
         <li key={product.id}>type: {product.product_type}</li>
-        <li>variants: {product.variants.length}</li>
+        <li>options: {product.variants.length}</li>
       </ul>
     </div>
   );

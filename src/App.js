@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import ProductList from './components/ProductList';
 import Product from './components/Product';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import PropTypes from 'prop-types';
 
@@ -19,6 +24,7 @@ class App extends Component {
           <Switch>
             <Route path="/products/:id" component={Product} />
             <Route path="/products" component={ProductList} />
+            <Route exact path="/" render={() => <Redirect to="/products" />} />
           </Switch>
         </Router>
       </div>
