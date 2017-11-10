@@ -1,1 +1,1 @@
-This project is a work in progress. For now, if you'd like to take a look, clone down the repo, run an npm install and npm start to get the app running. 
+To run the application, clone down the repo, run npm install and npm start to get the app running. It will take you directly to the /products page.
