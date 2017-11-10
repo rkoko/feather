@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-
-// const url = 'https://rentfeather.com';
 const URL = process.env.REACT_APP_API_URL;
 
 class Product extends Component {
@@ -32,32 +30,36 @@ class Product extends Component {
   }
 
   render() {
-    // debugger;
     return (
-      <div className="product-view">
-        <h4>{this.state.title}</h4>
-        <br />
-        <div dangerouslySetInnerHTML={{ __html: this.state.body_html }} />
-        <br />
-        <img src={this.state.imgURL} />
-        <br />
-        {this.state.variants.length != 1
-          ? this.state.variants.map(variant => (
-              <p>
-                {variant.title} - {variant.price}
-              </p>
-            ))
-          : null}
-        <br />
-        {this.state.variants.length === 1 ? (
-          <p>price: {this.state.price}</p>
-        ) : null}
-        <br />
-        <a target="_blank" href={URL + this.state.handle}>
-          Buy now
-        </a>
-        <br />
-        <NavLink to="/products">Back to products page</NavLink>
+      <div>
+        <div className="link">
+          <NavLink to="/products"> Back to products</NavLink>
+        </div>
+
+        <div className="product-view">
+          <div className="product-image">
+            <img src={this.state.imgURL} />
+          </div>
+
+          <div className="product-details">
+            {' '}
+            <h3>{this.state.title}</h3>
+            <div dangerouslySetInnerHTML={{ __html: this.state.body_html }} />
+            {this.state.variants.length !== 1
+              ? this.state.variants.map(variant => (
+                  <p>
+                    {variant.title} - ${variant.price}
+                  </p>
+                ))
+              : null}
+            {this.state.variants.length === 1 ? (
+              <p>price: ${this.state.price}</p>
+            ) : null}
+            <a className="btn" target="_blank" href={URL + this.state.handle}>
+              Buy now
+            </a>
+          </div>
+        </div>
       </div>
     );
   }

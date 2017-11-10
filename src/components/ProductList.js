@@ -5,14 +5,18 @@ const BASE_URL = process.env.REACT_APP_API;
 
 function generateNavlink(product) {
   return (
-    <div>
-      <img src={product.images[0].src} />
-      <br />
-      <NavLink to={`/products/${product.handle}`}>{product.title}</NavLink>
-      <ul id="product-type">
-        <li key={product.id}>type: {product.product_type}</li>
-        <li>options: {product.variants.length}</li>
-      </ul>
+    <div className="box">
+      <NavLink to={`/products/${product.handle}`}>
+        <img src={product.images[0].src} />
+        <br />
+        <b>{product.title.split(' - ')[0]}</b>
+      </NavLink>
+
+      <p>
+        type: {product.product_type}
+        <br />
+        options: {product.variants.length}
+      </p>
     </div>
   );
 }
@@ -30,9 +34,11 @@ class ProductList extends Component {
 
   render() {
     return (
-      <div className="product-list">
+      <div>
         <h4>Product List View</h4>
-        {this.state.products.map(product => generateNavlink(product))}
+        <div className="product-list">
+          {this.state.products.map(product => generateNavlink(product))}
+        </div>
       </div>
     );
   }
