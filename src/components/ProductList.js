@@ -1,25 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import GenerateNavLink from './GenerateNavLink';
 
 const BASE_URL = process.env.REACT_APP_API;
-
-function generateNavlink(product) {
-  return (
-    <div className="box">
-      <NavLink to={`/products/${product.handle}`}>
-        <img src={product.images[0].src} />
-        <br />
-        <b>{product.title.split(' - ')[0]}</b>
-      </NavLink>
-
-      <p>
-        type: {product.product_type}
-        <br />
-        options: {product.variants.length}
-      </p>
-    </div>
-  );
-}
 
 class ProductList extends Component {
   state = {
@@ -37,7 +20,7 @@ class ProductList extends Component {
       <div>
         <h4>Product List View</h4>
         <div className="product-list">
-          {this.state.products.map(product => generateNavlink(product))}
+          {this.state.products.map(product => GenerateNavLink(product))}
         </div>
       </div>
     );
