@@ -7,18 +7,13 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
-  NavLink
+  Redirect
 } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
-import PropTypes from 'prop-types';
 
 const history = createBrowserHistory();
 
 class App extends Component {
-  static contextTypes = {
-    router: PropTypes.object
-  };
   render() {
     return (
       <div className="app">

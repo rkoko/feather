@@ -5,7 +5,7 @@ function GenerateNavLink(product) {
   return (
     <div className="box">
       <NavLink to={`/products/${product.handle}`}>
-        <img src={product.images[0].src} />
+        <img src={product.images[0].src} alt="" />
         <br />
         <b>{product.title.split(' - ')[0]}</b>
       </NavLink>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import GenerateNavLink from './GenerateNavLink';
 
 const BASE_URL = process.env.REACT_APP_API;
@@ -9,7 +8,7 @@ class ProductList extends Component {
     products: []
   };
 
-  componentWillMount() {
+  componentDidMount() {
     fetch(`${BASE_URL}`)
       .then(res => res.json())
       .then(data => this.setState({ products: data.products.slice(0, 25) }));

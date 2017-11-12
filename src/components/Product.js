@@ -14,7 +14,7 @@ class Product extends Component {
     product: {}
   };
 
-  componentWillMount() {
+  componentDidMount() {
     fetch(`${URL}${this.state.handle}.json`)
       .then(res => res.json())
       .then(data =>
@@ -38,7 +38,7 @@ class Product extends Component {
 
         <div className="product-view">
           <div className="product-image">
-            <img src={this.state.imgURL} />
+            <img src={this.state.imgURL} alt="" />
           </div>
 
           <div className="product-details">
